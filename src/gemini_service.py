@@ -8,7 +8,7 @@ import google.generativeai as genai
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # Safer model choice
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-3.5-flash-lite")
 
 
 def generate_resolution(customer, ticket, related_articles, escalate=False):
