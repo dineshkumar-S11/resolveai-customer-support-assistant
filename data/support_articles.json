@@ -2,6 +2,76 @@
   {
     "id": 1,
     "title": "Internet Not Working",
-    "content": "Restart the router and check cable connections. If issue continues, escalate to technical support."
+    "content": "Restart the router and check cable connections. If the issue continues, escalate to technical support."
+  },
+  {
+    "id": 2,
+    "title": "Slow Internet Speed",
+    "content": "Check connected devices, restart the router, and perform a speed test. Escalate if speed remains below plan limits."
+  },
+  {
+    "id": 3,
+    "title": "Billing Dispute",
+    "content": "Verify invoice details, payment history, and subscribed plan before raising a billing investigation."
+  },
+  {
+    "id": 4,
+    "title": "Password Reset",
+    "content": "Use the self-service reset portal. If account verification fails, escalate to account support."
+  },
+  {
+    "id": 5,
+    "title": "SIM Activation Issue",
+    "content": "Confirm SIM registration status and network availability. Escalate if activation exceeds 24 hours."
+  },
+  {
+    "id": 6,
+    "title": "Network Outage",
+    "content": "Check outage dashboard and affected region reports before creating a support ticket."
+  },
+  {
+    "id": 7,
+    "title": "Plan Upgrade Request",
+    "content": "Verify customer eligibility and billing status before processing a plan upgrade."
+  },
+  {
+    "id": 8,
+    "title": "Connection Drops Frequently",
+    "content": "Check signal strength, router logs, and line stability. Escalate recurring cases."
+  },
+  {
+    "id": 9,
+    "title": "Payment Failed",
+    "content": "Verify payment method validity and transaction status before retrying payment."
+  },
+  {
+    "id": 10,
+    "title": "Router Configuration",
+    "content": "Ensure correct WAN settings and firmware version. Escalate advanced configuration issues."
+  },
+  {
+    "id": 11,
+    "title": "Mobile Data Not Working",
+    "content": "Check APN settings, network mode, and account status. Escalate if mobile data remains unavailable."
+  },
+  {
+    "id": 12,
+    "title": "Account Suspension",
+    "content": "Verify payment status and policy violations. Restore service only after confirming account eligibility."
+  },
+  {
+    "id": 13,
+    "title": "Duplicate Charges",
+    "content": "Review transaction history and billing records. Escalate confirmed duplicate charges for refund processing."
+  },
+  {
+    "id": 14,
+    "title": "New Connection Request",
+    "content": "Verify service availability in the customer's area and collect required identity documents before processing."
+  },
+  {
+    "id": 15,
+    "title": "Voice Call Quality Issue",
+    "content": "Check network coverage, device settings, and recent outage reports. Escalate persistent call quality problems."
   }
 ]
