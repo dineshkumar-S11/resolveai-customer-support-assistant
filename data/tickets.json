@@ -1,0 +1,107 @@
+[
+  {
+    "ticket_id": 1001,
+    "customer_id": 101,
+    "issue": "Internet Not Working",
+    "priority": "High",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1002,
+    "customer_id": 102,
+    "issue": "Billing Dispute",
+    "priority": "Medium",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1003,
+    "customer_id": 103,
+    "issue": "Payment Failed",
+    "priority": "High",
+    "status": "Escalated"
+  },
+  {
+    "ticket_id": 1004,
+    "customer_id": 104,
+    "issue": "Password Reset",
+    "priority": "Low",
+    "status": "Resolved"
+  },
+  {
+    "ticket_id": 1005,
+    "customer_id": 105,
+    "issue": "Network Outage",
+    "priority": "High",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1006,
+    "customer_id": 106,
+    "issue": "SIM Activation Issue",
+    "priority": "Medium",
+    "status": "Pending"
+  },
+  {
+    "ticket_id": 1007,
+    "customer_id": 107,
+    "issue": "Slow Internet Speed",
+    "priority": "Medium",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1008,
+    "customer_id": 108,
+    "issue": "Connection Drops Frequently",
+    "priority": "High",
+    "status": "Escalated"
+  },
+  {
+    "ticket_id": 1009,
+    "customer_id": 109,
+    "issue": "Router Configuration",
+    "priority": "Low",
+    "status": "Resolved"
+  },
+  {
+    "ticket_id": 1010,
+    "customer_id": 110,
+    "issue": "Plan Upgrade Request",
+    "priority": "Low",
+    "status": "Closed"
+  },
+  {
+    "ticket_id": 1011,
+    "customer_id": 111,
+    "issue": "Service Suspension",
+    "priority": "High",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1012,
+    "customer_id": 112,
+    "issue": "Duplicate Charges",
+    "priority": "Medium",
+    "status": "Pending"
+  },
+  {
+    "ticket_id": 1013,
+    "customer_id": 113,
+    "issue": "New Connection Request",
+    "priority": "Low",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1014,
+    "customer_id": 114,
+    "issue": "Voice Call Quality Issue",
+    "priority": "Medium",
+    "status": "Open"
+  },
+  {
+    "ticket_id": 1015,
+    "customer_id": 115,
+    "issue": "Internet Not Working",
+    "priority": "High",
+    "status": "Escalated"
+  }
+]
