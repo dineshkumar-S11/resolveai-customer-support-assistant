@@ -1,34 +1,45 @@
 import json
+from pathlib import Path
 
-CUSTOMERS_FILE = "data/customers.json"
-TICKETS_FILE = "data/tickets.json"
+DATA_DIR = Path("data")
+
+CUSTOMERS_FILE = DATA_DIR / "customers.json"
+TICKETS_FILE = DATA_DIR / "tickets.json"
 
 
-def load_customers():
-    with open(CUSTOMERS_FILE, "r") as file:
+def _load_json(path: Path):
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Expected data file not found: {path}"
+        )
+
+    with open(path, "r", encoding="utf-8") as file:
         return json.load(file)
 
 
-def load_tickets():
-    with open(TICKETS_FILE, "r") as file:
-        return json.load(file)
+# Load once and cache in memory
+_customers = {
+    customer["customer_id"]: customer
+    for customer in _load_json(CUSTOMERS_FILE)
+}
+
+_tickets = {
+    ticket["ticket_id"]: ticket
+    for ticket in _load_json(TICKETS_FILE)
+}
 
 
 def get_customer(customer_id):
-    customers = load_customers()
-
-    for customer in customers:
-        if customer["customer_id"] == customer_id:
-            return customer
-
-    return None
+    return _customers.get(customer_id)
 
 
 def get_ticket(ticket_id):
-    tickets = load_tickets()
+    return _tickets.get(ticket_id)
 
-    for ticket in tickets:
-        if ticket["ticket_id"] == ticket_id:
-            return ticket
 
-    return None
+def get_tickets_for_customer(customer_id):
+    return [
+        ticket
+        for ticket in _tickets.values()
+        if ticket.get("customer_id") == customer_id
+    ]
