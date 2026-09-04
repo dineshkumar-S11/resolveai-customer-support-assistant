@@ -1,0 +1,107 @@
+[
+  {
+    "customer_id": 101,
+    "name": "Arun Kumar",
+    "plan": "Fiber Basic",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 102,
+    "name": "Priya Sharma",
+    "plan": "Fiber Premium",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 103,
+    "name": "Rahul Verma",
+    "plan": "Mobile Unlimited",
+    "status": "Suspended",
+    "billing_status": "Overdue"
+  },
+  {
+    "customer_id": 104,
+    "name": "Sneha Patel",
+    "plan": "Fiber Basic",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 105,
+    "name": "Vikram Singh",
+    "plan": "Fiber Premium",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 106,
+    "name": "Meera Nair",
+    "plan": "Mobile Unlimited",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 107,
+    "name": "Karthik Raj",
+    "plan": "Fiber Standard",
+    "status": "Suspended",
+    "billing_status": "Overdue"
+  },
+  {
+    "customer_id": 108,
+    "name": "Ananya Das",
+    "plan": "Fiber Standard",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 109,
+    "name": "Rohit Gupta",
+    "plan": "Mobile Unlimited",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 110,
+    "name": "Divya Menon",
+    "plan": "Fiber Premium",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 111,
+    "name": "Ajay Reddy",
+    "plan": "Fiber Basic",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 112,
+    "name": "Pooja Iyer",
+    "plan": "Mobile Unlimited",
+    "status": "Active",
+    "billing_status": "Pending"
+  },
+  {
+    "customer_id": 113,
+    "name": "Naveen Kumar",
+    "plan": "Fiber Premium",
+    "status": "Suspended",
+    "billing_status": "Overdue"
+  },
+  {
+    "customer_id": 114,
+    "name": "Keerthana S",
+    "plan": "Fiber Standard",
+    "status": "Active",
+    "billing_status": "Paid"
+  },
+  {
+    "customer_id": 115,
+    "name": "Harish Kumar",
+    "plan": "Mobile Unlimited",
+    "status": "Active",
+    "billing_status": "Paid"
+  }
+]
