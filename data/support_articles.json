@@ -2,26 +2,6 @@
   {
     "id": 1,
     "title": "Internet Not Working",
-    "content": "Restart the router and wait 2 minutes. Check cable connections. If the issue persists, create a technical support ticket."
-  },
-  {
-    "id": 2,
-    "title": "Slow Internet Speed",
-    "content": "Run a speed test. Disconnect unused devices. Restart the router. If speed remains below plan limits, escalate to network support."
-  },
-  {
-    "id": 3,
-    "title": "Billing Complaint",
-    "content": "Verify invoice details and payment history. If charges are incorrect, create a billing investigation request."
-  },
-  {
-    "id": 4,
-    "title": "Plan Upgrade",
-    "content": "Customers can upgrade plans through the customer portal. Changes become active within 24 hours."
-  },
-  {
-    "id": 5,
-    "title": "SIM Activation Issue",
-    "content": "Ensure SIM is inserted correctly and device is restarted. If activation fails after 30 minutes, escalate."
+    "content": "Restart the router and check cable connections. If issue continues, escalate to technical support."
   }
 ]
