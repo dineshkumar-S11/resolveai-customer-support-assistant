@@ -92,18 +92,19 @@ def search_articles(query, top_k=3):
 
     results = []
 
-for i, idx in enumerate(indices[0]):
-    if 0 <= idx < len(metadata):
+    for i, idx in enumerate(indices[0]):
+        if 0 <= idx < len(metadata):
 
-        article = metadata[idx].copy()
+            article = metadata[idx].copy()
 
-        score = 1 / (1 + float(distances[0][i]))
+            # Convert distance to confidence score
+            score = 1 / (1 + float(distances[0][i]))
 
-        article["score"] = round(score, 3)
+            article["score"] = round(score, 3)
 
-        results.append(article)
+            results.append(article)
 
-return results
+    return results
 
 
 if __name__ == "__main__":
