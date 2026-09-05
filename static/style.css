@@ -691,6 +691,17 @@ grid-template-columns:1fr;
 .space-398{margin:398px;}
 .space-399{margin:399px;}
 .space-400{margin:400px;}
+#ticketChart{
+    width:100% !important;
+    max-height:220px;
+}
+
+#pieChart{
+    width:280px !important;
+    height:280px !important;
+    margin:auto;
+    display:block;
+}
 *{
 font-family:'Poppins',sans-serif;
 }
@@ -986,4 +997,11 @@ width:100%;
         opacity:1;
         transform:translateY(0);
     }
+}
+#result{
+    margin-top:15px;
+    padding:15px;
+    background:rgba(255,255,255,.08);
+    border-radius:12px;
+    line-height:1.8;
 }

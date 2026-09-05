@@ -410,30 +410,60 @@ window.addEventListener("load", () => {
 // Resolve Ticket Demo
 // ===============================
 
+const tickets = {
+ "1001": {customer:"Arun", issue:"Internet Down", status:"Escalated", solution:"Check router and ISP outage status.", confidence:"94%"},
+ "1002": {customer:"Priya", issue:"Password Reset", status:"Resolved", solution:"Password reset completed successfully.", confidence:"98%"},
+ "1003": {customer:"Rahul", issue:"Billing Query", status:"In Progress", solution:"Verify billing records.", confidence:"91%"},
+ "1004": {customer:"Karthik", issue:"Slow Internet", status:"Resolved", solution:"Optimized network settings.", confidence:"93%"},
+ "1005": {customer:"Divya", issue:"Account Locked", status:"Resolved", solution:"Unlocked account successfully.", confidence:"97%"},
+ "1006": {customer:"Vignesh", issue:"Payment Failed", status:"In Progress", solution:"Checking payment gateway logs.", confidence:"89%"},
+ "1007": {customer:"Meena", issue:"Service Outage", status:"Escalated", solution:"Forwarded to infrastructure team.", confidence:"95%"},
+ "1008": {customer:"Suresh", issue:"Mobile App Crash", status:"Resolved", solution:"Updated app and cleared cache.", confidence:"92%"},
+ "1009": {customer:"Anitha", issue:"Email Not Received", status:"Resolved", solution:"Verification email resent.", confidence:"96%"},
+ "1010": {customer:"Praveen", issue:"Login Error", status:"In Progress", solution:"Investigating authentication service.", confidence:"90%"},
+ "1011": {customer:"Harini", issue:"Subscription Issue", status:"Resolved", solution:"Subscription renewed.", confidence:"97%"},
+ "1012": {customer:"Lokesh", issue:"VPN Connection Failed", status:"Escalated", solution:"Assigned to network security team.", confidence:"94%"},
+ "1013": {customer:"Nisha", issue:"Profile Update Error", status:"Resolved", solution:"Database sync completed.", confidence:"95%"},
+ "1014": {customer:"Ajay", issue:"Server Timeout", status:"Escalated", solution:"Server performance under review.", confidence:"92%"},
+ "1015": {customer:"Keerthana", issue:"Refund Request", status:"In Progress", solution:"Refund approval in process.", confidence:"91%"}
+};
+
 function checkTicket() {
 
-    const ticket =
-        document.getElementById("ticketInput");
-
-    const result =
-        document.getElementById("result");
+    const ticket = document.getElementById("ticketInput");
+    const result = document.getElementById("result");
 
     if (!ticket || !result) return;
 
-    if (ticket.value === "") {
+    const id = ticket.value.trim();
 
-        result.innerHTML =
-            "❌ Enter Ticket ID";
-
+    if (id === "") {
+        result.innerHTML = "❌ Enter Ticket ID";
         return;
     }
 
-    result.innerHTML =
-        "✅ AI Resolution Generated for Ticket #" +
-        ticket.value;
+    if (tickets[id]) {
 
-    showToast(
-        "🤖 Ticket Processed"
-    );
+        const t = tickets[id];
 
+        result.innerHTML = `
+            <h3>🎫 Ticket #${id}</h3>
+            <p><b>Customer:</b> ${t.customer}</p>
+            <p><b>Issue:</b> ${t.issue}</p>
+            <p><b>Status:</b> ${t.status}</p>
+            <p><b>AI Solution:</b> ${t.solution}</p>
+            <p><b>Confidence:</b> ${t.confidence}</p>
+        `;
+
+        showToast("🤖 Ticket Processed");
+
+    } else {
+
+        result.innerHTML = `
+            <p style="color:red;">
+                ❌ Ticket Not Found
+            </p>
+        `;
+
+    }
 }
