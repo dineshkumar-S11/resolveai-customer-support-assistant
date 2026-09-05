@@ -1,10 +1,11 @@
 import logging
 import os
+import json
 
 print("Current Directory:", os.getcwd())
 print("Templates Exists:", os.path.exists("templates/index.html"))
 
-from src.database import get_ticket, get_customer
+from src.database import get_ticket, get_customer, _customers, _tickets
 from src.rag import search_articles
 from src.escalation import should_escalate
 from src.gemini_service import generate_resolution
@@ -118,10 +119,27 @@ app.mount(
 
 @app.get("/")
 def home(request: Request):
+
+    total_customers = len(_customers)
+    total_tickets = len(_tickets)
+
+    escalated = len([
+        t for t in _tickets.values()
+        if t.get("priority", "").lower() == "high"
+    ])
+
+    resolved = total_tickets - escalated
+
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={}
+        context={
+            "request": request,
+            "total_customers": total_customers,
+            "total_tickets": total_tickets,
+            "escalated": escalated,
+            "resolved": resolved
+        }
     )
 
 

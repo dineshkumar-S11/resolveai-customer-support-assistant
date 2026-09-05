@@ -1,99 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResolveAI Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResolveAI Premium Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div id="loader"></div>
 <div class="sidebar">
-    <h1>🤖 ResolveAI</h1>
 
-    <ul>
+    <div class="logo">
+        <h1>🤖 ResolveAI</h1>
+        <p>AI Customer Support</p>
+    </div>
+
+ <div class="search-box">
+    <input id="searchInput" type="text" placeholder="Search...">
+</div>
+    </div>
+
+    <ul class="menu">
         <li>📊 Dashboard</li>
         <li>🎫 New Ticket</li>
         <li>🔍 Search Tickets</li>
         <li>👥 Customers</li>
         <li>📚 Knowledge Base</li>
+        <li>📈 Analytics <span class="soon">Soon</span></li>
         <li>⚙️ Settings</li>
     </ul>
 </div>
 
 <div class="main">
 
-    <div class="header">
+<header class="top-header">
+    <div>
         <h1>Dashboard</h1>
-        <p>AI Powered Customer Support Assistant</p>
+        <p>Overview of your customer support ecosystem</p>
     </div>
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>Total Customers</h3>
-            <h1>15</h1>
-        </div>
-
-        <div class="card">
-            <h3>Total Tickets</h3>
-            <h1>15</h1>
-        </div>
-
-        <div class="card danger">
-            <h3>Escalated</h3>
-            <h1>4</h1>
-        </div>
-
-        <div class="card success">
-            <h3>Resolved</h3>
-            <h1>8</h1>
-        </div>
-
+    <div class="header-actions">
+        <div id="liveDate">Date</div>
+        <div id="liveTime">Time</div>
+        <button id="themeBtn">🌙</button>
+        <button id="notifyBtn">🔔</button>
+        <button id="exportBtn">📤 Export Report</button>
     </div>
+</header>
 
-    <div class="chat-box">
+<div id="notificationPanel" class="notification-panel">
+<h3>Notifications</h3>
+<p>🎫 New Ticket Created</p>
+<p>⚠️ Ticket #1001 Escalated</p>
+<p>✅ Ticket #1002 Resolved</p>
+</div>
 
-        <h2>Ask ResolveAI</h2>
+<section class="stats-grid">
+<div class="stat-card"><h2>{{ total_customers }}</h2><h4>Total Customers</h4></div>
+<div class="stat-card"><h2>{{ total_tickets }}</h2><h4>Total Tickets</h4></div>
+<div class="stat-card danger"><h2>{{ escalated }}</h2><h4>Escalated</h4></div>
+<div class="stat-card success"><h2>{{ resolved }}</h2><h4>Resolved</h4></div>
+</section>
 
-        <input
-            type="text"
-            placeholder="Enter Ticket ID (1001,1002...)"
-            id="ticketInput">
+<section class="chat-panel">
+<h2>🤖 Ask ResolveAI</h2>
+<input id="ticketInput" type="text" placeholder="Enter Ticket ID">
+<button onclick="checkTicket()">Resolve Ticket</button>
+<div id="result"></div>
 
-        <button onclick="checkTicket()">
-            Resolve Ticket
-        </button>
+<div class="confidence">
+AI Confidence Score: <strong>94%</strong>
+</div>
 
-        <pre id="result"></pre>
+<div class="confidence-bar">
+<div id="confidenceFill" class="confidence-fill"></div>
+</div>
+</section>
 
-    </div>
+<section class="panel">
+<h2>🎫 Recent Tickets</h2>
+<table id="ticketTable">
+<tr><th>ID</th><th>Customer</th><th>Issue</th><th>Status</th><th>Priority</th></tr>
+<tr><td>1001</td><td>Arun</td><td>Internet Down</td><td>Escalated</td><td>High</td></tr>
+<tr><td>1002</td><td>Priya</td><td>Password Reset</td><td>Resolved</td><td>Low</td></tr>
+</table>
+</section>
+
+<section class="panel">
+<h2>📊 Ticket Analytics</h2>
+<canvas id="ticketChart"></canvas>
+</section>
+
+<section class="panel">
+<h2>🥧 Resolved vs Escalated</h2>
+<canvas id="pieChart"></canvas>
+</section>
+
+<section class="panel">
+<h2>🔔 Recent Activity Feed</h2>
+<ul id="activityFeed">
+<li>Ticket #1001 escalated</li>
+<li>Password reset completed</li>
+</ul>
+</section>
 
 </div>
 
-<script>
-
-async function checkTicket() {
-
-    let id = document.getElementById("ticketInput").value;
-
-    if(!id){
-        alert("Enter Ticket ID");
-        return;
-    }
-
-    const response =
-        await fetch(`/ticket/${id}`);
-
-    const data =
-        await response.json();
-
-    document.getElementById("result")
-        .innerText =
-        JSON.stringify(data,null,2);
-}
-
-</script>
-
+<div id="toast"></div>
+<script src="/static/script.js"></script>
 </body>
 </html>
