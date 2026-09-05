@@ -6,3 +6,7 @@ google-generativeai
 faiss-cpu
 numpy
 pandas
+fastapi
+uvicorn
+jinja2
+python-multipart

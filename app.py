@@ -1,9 +1,17 @@
 import logging
+import os
+
+print("Current Directory:", os.getcwd())
+print("Templates Exists:", os.path.exists("templates/index.html"))
 
 from src.database import get_ticket, get_customer
 from src.rag import search_articles
 from src.escalation import should_escalate
 from src.gemini_service import generate_resolution
+
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -91,18 +99,43 @@ def process_ticket(ticket_id):
     return result
 
 
+# ==========================
+# FastAPI Setup
+# ==========================
+
+app = FastAPI(title="ResolveAI")
+
+templates = Jinja2Templates(
+    directory="templates"
+)
+
+app.mount(
+    "/static",
+    StaticFiles(directory="static"),
+    name="static"
+)
+
+
+@app.get("/")
+def home(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context={}
+    )
+
+
+@app.get("/ticket/{ticket_id}")
+def resolve_ticket(ticket_id: int):
+    return process_ticket(ticket_id)
+
+
 if __name__ == "__main__":
-    test_tickets = [
-        1001,
-        1002
-    ]
+    import uvicorn
 
-    for ticket_id in test_tickets:
-        print(
-            f"\n========== RESOLVEAI RESULT "
-            f"(ticket {ticket_id}) ==========\n"
-        )
-
-        result = process_ticket(ticket_id)
-
-        print(result)
+    uvicorn.run(
+        "app:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True
+    )

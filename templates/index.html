@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveAI Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h1>🤖 ResolveAI</h1>
+
+    <ul>
+        <li>📊 Dashboard</li>
+        <li>🎫 New Ticket</li>
+        <li>🔍 Search Tickets</li>
+        <li>👥 Customers</li>
+        <li>📚 Knowledge Base</li>
+        <li>⚙️ Settings</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>Dashboard</h1>
+        <p>AI Powered Customer Support Assistant</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Customers</h3>
+            <h1>15</h1>
+        </div>
+
+        <div class="card">
+            <h3>Total Tickets</h3>
+            <h1>15</h1>
+        </div>
+
+        <div class="card danger">
+            <h3>Escalated</h3>
+            <h1>4</h1>
+        </div>
+
+        <div class="card success">
+            <h3>Resolved</h3>
+            <h1>8</h1>
+        </div>
+
+    </div>
+
+    <div class="chat-box">
+
+        <h2>Ask ResolveAI</h2>
+
+        <input
+            type="text"
+            placeholder="Enter Ticket ID (1001,1002...)"
+            id="ticketInput">
+
+        <button onclick="checkTicket()">
+            Resolve Ticket
+        </button>
+
+        <pre id="result"></pre>
+
+    </div>
+
+</div>
+
+<script>
+
+async function checkTicket() {
+
+    let id = document.getElementById("ticketInput").value;
+
+    if(!id){
+        alert("Enter Ticket ID");
+        return;
+    }
+
+    const response =
+        await fetch(`/ticket/${id}`);
+
+    const data =
+        await response.json();
+
+    document.getElementById("result")
+        .innerText =
+        JSON.stringify(data,null,2);
+}
+
+</script>
+
+</body>
+</html>
